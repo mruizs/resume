@@ -1,0 +1,656 @@
+html,
+body {
+  overflow: auto;
+  height: 100vh;
+  margin: 0;
+}
+
+/* MENU */
+.menu {
+  overflow: auto;
+  display: grid;
+  grid-template-areas: "icon nav-bar";
+  grid-template-columns: 60px auto;
+  height: 80px;
+}
+
+.icon {
+  grid-area: icon;
+  width: 50px;
+  height: 60px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0);
+}
+
+.hamburger {
+  position: relative;
+  display: inherit;
+  width: 50px;
+  height: 6px;
+  background: white;
+  top: 60px;
+  left: 20px;
+  /* transform: translate(0, 0); */
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+  transition: 0.5s;
+}
+
+.hamburger:before,
+.hamburger:after {
+  content: "";
+  position: relative;
+  display: inherit;
+  width: 50px;
+  height: 6px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+  transition: 0.5s;
+}
+
+.hamburger:before {
+  top: -36px;
+}
+
+.hamburger:after {
+  top: -24px;
+}
+
+.icon.active .hamburger {
+  background: rgba(0, 0, 0, 0);
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0);
+}
+
+.icon.active .hamburger:before {
+  top: -20px;
+  transform: rotate(45deg);
+}
+
+.icon.active .hamburger:after {
+  top: -25px;
+  transform: rotate(135deg);
+}
+
+.nav-bar {
+  grid-area: nav-bar;
+  max-width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-around;
+  transform: translateY(-100%);
+  transition-delay: 0.5s;
+  transition: 0.5s;
+}
+
+.nav-bar.active {
+  grid-area: nav-bar;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-around;
+  align-content: center;
+  transform: translateY(0px);
+  transition-delay: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.nav-bar * h2 {
+  font-family: "Fredericka the Great", cursive;
+  color: white;
+  font-size: large;
+  text-align: center;
+}
+
+.nav-bar:hover * h2 {
+  color: grey;
+}
+
+.sec1:hover h2,
+.sec2:hover h2,
+.sec3:hover h2 {
+  color: white;
+}
+
+/* INTRO */
+.intro {
+  overflow: auto;
+  top: 0;
+  min-height: 100vh;
+  padding: 0 2vh;
+  background: #1a181a url("./images/photo.jpg") no-repeat right top;
+  background-size: auto 100vh;
+  display: grid;
+  grid:
+    "menu"
+    "name"
+    "position";
+  grid-template-rows: 1fr 4fr 1fr;
+}
+
+/* FONTS */
+.intro > h1 {
+  grid-area: name;
+  font-family: "Fredericka the Great", cursive;
+  font-size: x-large;
+  text-align: right;
+  padding: 0;
+  margin: 0;
+  color: white;
+  align-self: end;
+}
+
+.intro > h3 {
+  grid-area: position;
+  font-family: "Amatic SC", cursive;
+  font-size: large;
+  text-align: right;
+  color: white;
+  border-top: dotted;
+  padding-top: 1vh;
+}
+
+.skills > h2,
+.experience > h2,
+.education > h2 {
+  margin: 0;
+  font-family: "Fredericka the Great", cursive;
+  font-size: x-large;
+  text-align: center;
+  grid-area: title;
+}
+
+footer h4 {
+  font-family: "Amatic SC", cursive;
+  font-size: medium;
+  color: white;
+  padding: 15px;
+}
+
+footer h4 a {
+  font-family: "Amatic SC", cursive;
+  font-size: medium;
+  color: white;
+  text-decoration: none;
+}
+
+/* SKILLS */
+.skills {
+  display: grid;
+  grid:
+    "title"
+    "languages"
+    "dev"
+    "sysadmin";
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 20px;
+  padding: 10px;
+}
+
+.languages > h3,
+.dev > h3,
+.sysadmin > h3 {
+  grid-row-start: 1;
+  margin: 0;
+  padding-bottom: 10px;
+  font-family: "Amatic SC", bold;
+  font-size: large;
+  text-align: center;
+}
+
+.languages {
+  grid-area: languages;
+  display: grid;
+}
+
+.dev {
+  grid-area: dev;
+  display: grid;
+}
+
+.sysadmin {
+  grid-area: sysadmin;
+  display: grid;
+}
+
+.skill {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.skill name {
+  grid-column-start: 1;
+  font-family: "Open Sans", sans-serif;
+  font-size: small;
+  text-align: right;
+  padding-right: 5px;
+}
+
+.skill value {
+  text-align: left;
+  font-size: small;
+  padding-left: 5px;
+}
+
+/* EXPERIENCE */
+.experience {
+  background-color: #dceff4;
+  display: grid;
+  grid:
+    "title"
+    "company"
+    "company"
+    "company"
+    "company";
+  grid-template-rows: 1fr auto;
+  grid-gap: 20px;
+  padding: 10px;
+}
+
+.company {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  background: white;
+  border: grey dotted;
+  padding: 5px;
+}
+
+.company h2 {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  font-family: "Amatic SC", bold;
+  font-size: x-large;
+  margin: 0;
+  padding: 5px;
+}
+
+.company h3 {
+  grid-row: 2;
+  font-family: "Amatic SC", regular;
+  font-size: medium;
+  justify-content: space-between;
+  align-self: center;
+  margin: 0;
+  padding: 5px;
+}
+
+.company p {
+  grid-column: 1 / -1;
+  font-family: "Open Sans", regular, sans-serif;
+  font-size: small;
+  margin: 0;
+  padding: 5px;
+}
+
+.company h6 {
+  grid-column: 1 / -1;
+  font-family: "Open Sans", bold, sans-serif;
+  font-size: small;
+  margin: 0;
+  padding: 5px;
+}
+
+/* EDUCATION */
+.education {
+  margin: 20px 10px 20px;
+}
+
+.education > h3 {
+  margin: 0;
+  padding: 25px 0 10px;
+  font-family: "Amatic SC", bold;
+  font-size: large;
+  text-align: center;
+}
+.university {
+  display: grid;
+  justify-content: space-around;
+  padding: 10px;
+  border: 1px dotted;
+  /* background-color: #dceff4; */
+}
+
+.university > h2 {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  font-family: "Amatic SC", bold;
+  font-size: x-large;
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+  border-bottom: 1px dotted;
+}
+
+.university > h3 {
+  grid-row: 2;
+  font-family: "Amatic SC", regular;
+  font-size: medium;
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+}
+
+.certification {
+  display: grid;
+  justify-content: space-around;
+  padding: 10px;
+  border: 1px dotted;
+}
+
+.certification > h2 {
+  font-family: "Amatic SC", bold;
+  font-size: x-large;
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+  border-bottom: 1px dotted;
+}
+
+.certification > h3 {
+  font-family: "Amatic SC", regular;
+  font-size: medium;
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+}
+
+.courses {
+  display: grid;
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.course > h2 {
+  font-family: "Amatic SC", bold;
+  font-size: x-large;
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+  border-bottom: 1px dotted;
+}
+
+.course > h3 {
+  grid-row: 2;
+  font-family: "Amatic SC", regular;
+  font-size: medium;
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+}
+
+footer {
+  display: grid;
+  grid-template-areas:
+    "linkedin github"
+    "foot foot";
+  justify-content: center;
+  grid-gap: 0 50px;
+  overflow: auto;
+  height: 15vh;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+footer img {
+  padding-top: 30px;
+}
+
+.linkedin {
+  grid-area: linkedin;
+}
+
+.github {
+  grid-area: github;
+}
+
+.foot {
+  grid-area: foot;
+  text-align: center;
+}
+
+footer h4 {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+}
+
+@media all and (min-width: 740px) {
+  .intro > h1 {
+    font-size: xx-large;
+    text-align: left;
+    align-self: end;
+  }
+
+  .intro > h3 {
+    font-size: x-large;
+    text-align: left;
+    color: white;
+    border-top: dashed;
+  }
+
+  .icon.active .nav-bar {
+    transform: translateY(10px);
+  }
+
+  .nav-bar > h2 {
+    font-size: x-large;
+  }
+
+  .skills {
+    display: grid;
+    grid:
+      "title title title"
+      "dev languages sysadmin";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5vh;
+    margin: 5vh 10vh 5vh;
+  }
+
+  .languages {
+    grid-area: languages;
+    display: grid;
+    align-content: flex-start;
+  }
+
+  .dev {
+    grid-area: dev;
+    display: grid;
+    align-content: flex-start;
+  }
+
+  .sysadmin {
+    grid-area: sysadmin;
+    display: grid;
+    align-content: flex-start;
+  }
+
+  .skills > h2,
+  .experience > h2,
+  .education > h2 {
+    margin: 0;
+    font-family: "Fredericka the Great", cursive;
+    font-size: xx-large;
+    text-align: center;
+    grid-area: title;
+  }
+
+  .languages > h3,
+  .dev > h3,
+  .sysadmin > h3 {
+    grid-row-start: 1;
+    padding-bottom: 10px;
+    font-size: x-large;
+  }
+
+  .skill {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .skill name {
+    grid-column-start: 1;
+    font-family: "Open Sans", sans-serif;
+    font-size: small;
+    text-align: right;
+    padding-right: 5px;
+  }
+
+  .skill value {
+    text-align: left;
+    font-size: small;
+    padding-left: 5px;
+  }
+
+  .experience {
+    display: grid;
+    grid:
+      "title title"
+      "company company"
+      "company company";
+    padding: 40px;
+  }
+
+  .company {
+    border: grey dashed;
+  }
+
+  /* EDUCATION */
+  .education > h3 {
+    font-size: x-large;
+  }
+  .university {
+    display: grid;
+    padding: 10px;
+    margin: auto;
+    width: 200px;
+    border: 1px dashed;
+  }
+
+  .university > h2 {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    font-family: "Amatic SC", bold;
+    font-size: x-large;
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px dashed;
+  }
+
+  .certification {
+    display: grid;
+    padding: 10px;
+    margin: auto;
+    width: 200px;
+    border: 1px dashed;
+  }
+
+  .certification > h2 {
+    border-bottom: 1px dashed;
+  }
+
+  .courses {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-around;
+    padding: 10px;
+  }
+
+  .course {
+    display: grid;
+    margin: auto;
+    width: 200px;
+    border: 1px dashed;
+  }
+
+  .course > h2 {
+    border-bottom: 1px dashed;
+  }
+
+  @media all and (min-width: 1030px) {
+    .intro > h1 {
+      font-size: xx-large;
+      text-align: left;
+      align-self: end;
+    }
+
+    .intro > h3 {
+      font-size: x-large;
+      text-align: left;
+      color: white;
+      border-top: dashed;
+    }
+
+    .skills {
+      display: grid;
+      grid:
+        "title title title"
+        "languages dev sysadmin";
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .languages {
+      grid-area: languages;
+      display: grid;
+      align-content: flex-start;
+    }
+
+    .dev {
+      grid-area: dev;
+      display: grid;
+      align-content: flex-start;
+    }
+
+    .sysadmin {
+      grid-area: sysadmin;
+      display: grid;
+      align-content: flex-start;
+    }
+
+    .skills > h2,
+    .experience > h2,
+    .education > h2 {
+      margin: 0;
+      font-family: "Fredericka the Great", cursive;
+      font-size: xx-large;
+      text-align: center;
+      grid-area: title;
+    }
+
+    .languages > h3,
+    .dev > h3,
+    .sysadmin > h3 {
+      grid-row-start: 1;
+      padding-bottom: 10px;
+      font-size: x-large;
+    }
+
+    .skill {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .skill name {
+      font-size: medium;
+      margin-bottom: 5px;
+    }
+
+    .skill value {
+      font-size: medium;
+      margin-bottom: 5px;
+    }
+
+    .experience {
+      grid-gap: 40px;
+    }
+
+    /* EDUCATION */
+    .courses {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+  }
+}
